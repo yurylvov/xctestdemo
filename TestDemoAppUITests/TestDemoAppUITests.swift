@@ -17,8 +17,25 @@ class TestDemoAppUITests: XCTestCase {
         continueAfterFailure = false
 
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        XCUIApplication().launch()
-
+        
+        let app = XCUIApplication()
+        app.launch()
+        sleep(2)
+        app.buttons.element(boundBy: 0).tap();
+        sleep(1)
+        app.buttons.element(boundBy: 0).tap();
+        sleep(1)
+        app.buttons.element(boundBy: 0).tap();
+        sleep(1)
+        app.buttons.element(boundBy: 0).tap();
+        sleep(1)
+        app.buttons.element(boundBy: 0).tap();
+        sleep(1)
+        app.buttons.element(boundBy: 0).tap();
+        sleep(1)
+        XCTAssertEqual(app.textFields["TextField"].value as! String, "6")
+        app.buttons["goback"].tap();
+        sleep(4)
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
 
